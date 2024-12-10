@@ -1,9 +1,9 @@
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# Run `pod lib lint orientation_lock_checker.podspec` to validate before publishing.
+# Run `pod lib lint orientation_state.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'orientation_lock_checker'
+  s.name             = 'orientation_state'
   s.version          = '0.0.1'
   s.summary          = 'A Flutter plugin of detect screen orientation lock switch status'
   s.description      = <<-DESC

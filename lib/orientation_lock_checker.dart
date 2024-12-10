@@ -1,14 +1,16 @@
 import 'orientation_lock_checker_platform_interface.dart';
 
 /// Checks if the device orientation is locked.
-class OrientationLockChecker {
+class OrientationStateChecker {
   /// Returns true if the device orientation is locked.
-  Future<bool> isDeviceOrientationLocked() {
-    return OrientationLockCheckerPlatform.instance.isDeviceOrientationLocked();
+  Future<bool> isDeviceOrientationStateed() {
+    return OrientationStateCheckerPlatform.instance
+        .isDeviceOrientationStateed();
   }
 
   /// Sets the orientation lock to the desired status.
-  Future<void> setOrientationLock(bool enabled) {
-    return OrientationLockCheckerPlatform.instance.setOrientationLock(enabled);
+  Future<void> setOrientationState(bool enabled) {
+    return OrientationStateCheckerPlatform.instance
+        .setOrientationState(enabled);
   }
 }

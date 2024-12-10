@@ -1,11 +1,11 @@
-name: orientation_lock_checker
+name: orientation_state
 description: "A Flutter plugin of detect screen orientation lock switch status"
-version: 0.0.1
-homepage: https://github.com/xSILENCEx/orientation_lock_checker
+version: 1.0.0
+homepage: https://github.com/bugrevealingbme/orientation_state
 
 environment:
-  sdk: '>=3.2.3 <4.0.0'
-  flutter: '>=3.3.0'
+  sdk: ">=3.2.3 <4.0.0"
+  flutter: ">=3.3.0"
 
 dependencies:
   flutter:
@@ -35,10 +35,10 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.liugl.orientation_lock_checker
-        pluginClass: OrientationLockCheckerPlugin
+        package: com.bme.orientation_state
+        pluginClass: OrientationStateCheckerPlugin
       ios:
-        pluginClass: OrientationLockCheckerPlugin
+        pluginClass: OrientationStateCheckerPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

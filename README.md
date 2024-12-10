@@ -1,12 +1,16 @@
-# orientation_lock_checker
+# orientation_state
 
-A Flutter plugin of detect screen orientation lock switch status
+A Flutter plugin of detect screen orientation lock switch status.
+!!You need to define manual permission to change system settings
 
 ## Getting Started
 
 ```dart
-import 'package:orientation_lock_checker/orientation_lock_checker.dart';
+import 'package:orientation_state/orientation_state.dart';
 
-isDeviceOrientationLocked = await _orientationLockCheckerPlugin.isDeviceOrientationLocked();
+isDeviceOrientationStateed = await _OrientationStateCheckerPlugin.isDeviceOrientationStateed();
+
+await _OrientationStateCheckerPlugin.setOrientationState(true);
+await _OrientationStateCheckerPlugin.setOrientationState(false);
 ```
 

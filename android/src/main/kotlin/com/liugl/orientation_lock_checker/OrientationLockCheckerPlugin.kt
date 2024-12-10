@@ -1,4 +1,4 @@
-package com.liugl.orientation_lock_checker
+package com.bme.orientation_state
 
 import android.content.Context
 import android.content.pm.ActivityInfo
@@ -9,27 +9,27 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 
-/** OrientationLockCheckerPlugin */
-class OrientationLockCheckerPlugin : FlutterPlugin, MethodCallHandler {
+/** OrientationStateCheckerPlugin */
+class OrientationStateCheckerPlugin : FlutterPlugin, MethodCallHandler {
     /// The MethodChannel that will handle communication between Flutter and native Android
     private lateinit var channel: MethodChannel
     private lateinit var context: Context
 
-    private fun getScreenOrientationLockStatus(): Boolean {
+    private fun getScreenOrientationStateStatus(): Boolean {
         try {
-            val orientationLock = Settings.System.getInt(
+            val OrientationState = Settings.System.getInt(
                 context.contentResolver,
                 Settings.System.ACCELEROMETER_ROTATION
             )
             // Eğer değer 0 ise ekran döndürme kilidi açık, 1 ise kapalı
-            return orientationLock == 0
+            return OrientationState == 0
         } catch (e: Settings.SettingNotFoundException) {
             e.printStackTrace()
         }
         return false
     }
 
-    private fun setOrientationLockStatus(enabled: Boolean) {
+    private fun setOrientationStateStatus(enabled: Boolean) {
         try {
             // Ekran döndürme kilidini ayarla
             Settings.System.putInt(
@@ -43,21 +43,21 @@ class OrientationLockCheckerPlugin : FlutterPlugin, MethodCallHandler {
     }
 
     override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "orientation_lock_checker")
+        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "orientation_state")
         channel.setMethodCallHandler(this)
         context = flutterPluginBinding.applicationContext
     }
 
     override fun onMethodCall(call: MethodCall, result: Result) {
         when (call.method) {
-            "isDeviceOrientationLocked" -> {
+            "isDeviceOrientationStateed" -> {
                 // Ekran döndürme kilidinin durumunu kontrol et
-                result.success(getScreenOrientationLockStatus())
+                result.success(getScreenOrientationStateStatus())
             }
-            "setOrientationLock" -> {
+            "setOrientationState" -> {
                 // Ekran döndürme kilidini ayarla
                 val enabled = call.argument<Boolean>("enabled") ?: false
-                setOrientationLockStatus(enabled)
+                setOrientationStateStatus(enabled)
                 result.success(null)
             }
             else -> result.notImplemented()
