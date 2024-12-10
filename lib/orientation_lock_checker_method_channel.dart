@@ -13,10 +13,10 @@ class MethodChannelOrientationStateChecker
   final methodChannel = const MethodChannel('orientation_state');
 
   @override
-  Future<bool> isDeviceOrientationStateed() async {
+  Future<bool> isDeviceOrientationLocked() async {
     try {
       final bool? value =
-          await methodChannel.invokeMethod<bool>('isDeviceOrientationStateed');
+          await methodChannel.invokeMethod<bool>('isDeviceOrientationLocked');
       return value ?? false;
     } on PlatformException catch (e) {
       // Error handling for any issues that arise while invoking the method

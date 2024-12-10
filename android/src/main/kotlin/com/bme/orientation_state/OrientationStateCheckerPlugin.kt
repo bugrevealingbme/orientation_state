@@ -50,7 +50,7 @@ class OrientationStateCheckerPlugin : FlutterPlugin, MethodCallHandler {
 
     override fun onMethodCall(call: MethodCall, result: Result) {
         when (call.method) {
-            "isDeviceOrientationStateed" -> {
+            "isDeviceOrientationLocked" -> {
                 // Ekran döndürme kilidinin durumunu kontrol et
                 result.success(getScreenOrientationStateStatus())
             }

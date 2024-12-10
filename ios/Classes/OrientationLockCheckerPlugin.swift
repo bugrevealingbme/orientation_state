@@ -11,7 +11,7 @@ public class OrientationStateCheckerPlugin: NSObject, FlutterPlugin {
 
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         switch call.method {
-        case "isDeviceOrientationStateed":
+        case "isDeviceOrientationLocked":
             result(getScreenOrientationStateStatus())
         default:
             result(FlutterMethodNotImplemented)

@@ -25,9 +25,9 @@ abstract class OrientationStateCheckerPlatform extends PlatformInterface {
   }
 
   /// Future method to check if the device orientation is locked.
-  Future<bool> isDeviceOrientationStateed() {
+  Future<bool> isDeviceOrientationLocked() {
     throw UnimplementedError(
-        'isDeviceOrientationStateed() has not been implemented.');
+        'isDeviceOrientationLocked() has not been implemented.');
   }
 
   /// Future method to set the device orientation lock status.

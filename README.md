@@ -8,7 +8,7 @@ A Flutter plugin of detect screen orientation lock switch status.
 ```dart
 import 'package:orientation_state/orientation_state.dart';
 
-isDeviceOrientationStateed = await _OrientationStateCheckerPlugin.isDeviceOrientationStateed();
+isDeviceOrientationLocked = await _OrientationStateCheckerPlugin.isDeviceOrientationLocked();
 
 await _OrientationStateCheckerPlugin.setOrientationState(true);
 await _OrientationStateCheckerPlugin.setOrientationState(false);
